@@ -81,5 +81,10 @@ var handlers = {
     todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value); // REMEMBER: the valueAsNumber argument, we doing this because it must reference to number position (line 25) and this is number, thus valueAsNumber
     changeTodoPositionInput.value = '';
     changeTodoTextInput.value = "Add some more?";
+  },
+  deleteTodo: function(){
+    var deleteTodoPositionInput = document.getElementById("deleteTodoPositionInput");
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = "";
   }
 };

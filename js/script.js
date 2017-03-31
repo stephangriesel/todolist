@@ -78,7 +78,7 @@ var handlers = {
   changeTodo: function() {
     var changeTodoPositionInput = document.getElementById("changeTodoPositionInput");
     var changeTodoTextInput = document.getElementById("changeTodoTextInput");
-    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value); // REMEMBER: the valueAsNumber argument, we doing this because it must reference to number position (line 25) and this is number, thus valueAsNumber
     changeTodoPositionInput.value = '';
     changeTodoTextInput.value = "Add some more?";
   }

@@ -56,10 +56,8 @@ var handlers = {
     changeTodoTextInput.value = '';
     view.displayTodos();
   },
-  deleteTodo: function() {
-    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-    deleteTodoPositionInput.value = '';
+  deleteTodo: function(position) {
+    todoList.deleteTodo(position);
     view.displayTodos();
   },
   toggleCompleted: function() {
@@ -106,5 +104,12 @@ var view = {
 var todosUl = document.querySelector("ul");
 
 todosUl.addEventListener("click", function(event){
-  console.log(event.target.parentNode.id);
+  // Get element that was clicked on
+  var ElementClicked = event.target;
+  
+  // Check if element clicked is a delete button
+  if (ElementClicked.className === "deleteButton") {
+    // run handlers.deleteTodo(position).
+    parseInt(elementClicked.parentNode.id);
+  }
 });

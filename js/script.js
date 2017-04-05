@@ -94,21 +94,24 @@ var view = {
     }
   },
   createDeleteButton: function() {
-    var deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.className = "deleteButton";
-    return deleteButton;
+      var deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.className = "deleteButton";
+      return deleteButton;
+    },
+  setUpEventListeners: function () {
+      var todosUl = document.querySelector("ul");
+
+      todosUl.addEventListener("click", function(event){
+      // Get element that was clicked on
+      var elementClicked = event.target;
+  
+      // Check if element clicked is a delete button
+      if (elementClicked.className === "deleteButton") {
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id)); //parseInt used because it is a number
+      }
+    });
   }
 };
 
-var todosUl = document.querySelector("ul");
-
-todosUl.addEventListener("click", function(event){
-  // Get element that was clicked on
-  var elementClicked = event.target;
-  
-  // Check if element clicked is a delete button
-  if (elementClicked.className === "deleteButton") {
-    handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
-  }
-});
+view.setUpEventListeners();

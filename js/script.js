@@ -105,11 +105,10 @@ var todosUl = document.querySelector("ul");
 
 todosUl.addEventListener("click", function(event){
   // Get element that was clicked on
-  var ElementClicked = event.target;
+  var elementClicked = event.target;
   
   // Check if element clicked is a delete button
-  if (ElementClicked.className === "deleteButton") {
-    // run handlers.deleteTodo(position).
-    parseInt(elementClicked.parentNode.id);
+  if (elementClicked.className === "deleteButton") {
+    handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
   }
 });

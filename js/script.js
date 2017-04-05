@@ -114,4 +114,4 @@ var view = {
   }
 };
 
-view.setUpEventListeners();
+view.setUpEventListeners(); // read more on: http://stackoverflow.com/questions/1687296/what-is-dom-event-delegation or google javascript event delegation

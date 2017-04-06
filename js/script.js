@@ -34,30 +34,40 @@ var todoList = {
       }                  
     });
     
-    // Case 1: If everything’s true, make everything false.
-    if (completedTodos === totalTodos) {
+//     // Case 1: If everything’s true, make everything false.
+//     if (completedTodos === totalTodos) {
       
-          /* Old Code
-         for (var i = 0; i < totalTodos; i++) {
-         this.todos[i].completed = false;
-         }*/
+//           /* Old Code
+//          for (var i = 0; i < totalTodos; i++) {
+//          this.todos[i].completed = false;
+//          }*/
       
-      this.todo.forEach(function(todo) {
-          todo.completed = false;                                
-      });
+//       this.todo.forEach(function(todo) {
+//           todo.completed = false;                                
+//       });
       
-    // Case 2: Otherwise, make everything true.
-    } else {
+//     // Case 2: Otherwise, make everything true.
+//     } else {
       
-      /* OLD CODE
-      for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = true;
-      }     */
+//       /* OLD CODE
+//       for (var i = 0; i < totalTodos; i++) {
+//         this.todos[i].completed = true;
+//       }     */
       
-      this.todo.forEach(function(todo) {
+//       this.todo.forEach(function(todo) {
+//         todo.completed = true;
+//       });
+//     }
+    
+    this.todos.forEach(function(todo) {
+      // Case 1: If everything is true, make everything false.
+      if (completedTodos === totalTodos) {
+        todo.completed = false;
+        // Case 2: Otherwise, make everything true 
+      } else {
         todo.completed = true;
-      });
-    }
+      }
+    });
   }
 };
 
@@ -135,16 +145,3 @@ var view = {
 };
 
 view.setUpEventListeners();
-
-
-
-
-
-
-
-
-
-
-
-
-

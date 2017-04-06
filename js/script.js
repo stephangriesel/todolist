@@ -106,22 +106,46 @@ var view = {
   displayTodos: function() {
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    for (var i = 0; i < todoList.todos.length; i++) {
-      var todoLi = document.createElement('li');
-      var todo = todoList.todos[i];
-      var todoTextWithCompletion = '';
+//     for (var i = 0; i < todoList.todos.length; i++) {
+//       var todoLi = document.createElement('li');
+//       var todo = todoList.todos[i];
+//       var todoTextWithCompletion = '';
 
-      if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
-      } else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
-      }
+//       if (todo.completed === true) {
+//         todoTextWithCompletion = '(x) ' + todo.todoText;
+//       } else {
+//         todoTextWithCompletion = '( ) ' + todo.todoText;
+//       }
       
-      todoLi.id = i;
-      todoLi.textContent = todoTextWithCompletion;
-      todoLi.appendChild(this.createDeleteButton());
-      todosUl.appendChild(todoLi);
-    }
+//       todoLi.id = i;
+//       todoLi.textContent = todoTextWithCompletion;
+//       todoLi.appendChild(this.createDeleteButton());
+//       todosUl.appendChild(todoLi);
+//     }
+    
+    /* NOTE:
+    this // refers to the view object
+    forEach(callback, this)
+    
+    //MDN Article: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+    */
+    
+    todoList.todos.forEach(function(todo, position) {
+       var todoLi = document.createElement('li');
+       var todoTextWithCompletion = '';
+
+       if (todo.completed === true) {
+         todoTextWithCompletion = '(x) ' + todo.todoText;
+       } else {
+         todoTextWithCompletion = '( ) ' + todo.todoText;
+       }
+      
+       todoLi.id = position;
+       todoLi.textContent = todoTextWithCompletion;
+       todoLi.appendChild(this.createDeleteButton());
+       todosUl.appendChild(todoLi);
+    },this);
+    
   },
   createDeleteButton: function() {
       var deleteButton = document.createElement("button");

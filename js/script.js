@@ -20,23 +20,43 @@ var todoList = {
     var totalTodos = this.todos.length;
     var completedTodos = 0;
     
-    // Get number of completed todos.
+    // Old for loop
+    /* Get number of completed todos.
     for (var i = 0; i < totalTodos; i++) {
       if (this.todos[i].completed === true) {
         completedTodos++;
       }
-    }
+    } */
+    
+    this.todos.forEach(function(todo) {
+      if(todo.completed === true) {
+        completedTodos++;
+      }                  
+    });
     
     // Case 1: If everything’s true, make everything false.
     if (completedTodos === totalTodos) {
-      for (var i = 0; i < totalTodos; i++) {
-        this.todos[i].completed = false;
-      }
+      
+          /* Old Code
+         for (var i = 0; i < totalTodos; i++) {
+         this.todos[i].completed = false;
+         }*/
+      
+      this.todo.forEach(function(todo) {
+          todo.completed = false;                                
+      });
+      
     // Case 2: Otherwise, make everything true.
     } else {
+      
+      /* OLD CODE
       for (var i = 0; i < totalTodos; i++) {
         this.todos[i].completed = true;
-      }      
+      }     */
+      
+      this.todo.forEach(function(todo) {
+        todo.completed = true;
+      });
     }
   }
 };
@@ -114,4 +134,17 @@ var view = {
   }
 };
 
-view.setUpEventListeners(); // read more on: http://stackoverflow.com/questions/1687296/what-is-dom-event-delegation or google javascript event delegation
+view.setUpEventListeners();
+
+
+
+
+
+
+
+
+
+
+
+
+
